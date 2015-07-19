@@ -158,7 +158,7 @@ We will modify a dataset a bit, to create a variable that shows a difference bet
 
 ```{r}
 difference.in.pattern = left_join(weekend.average.steps, weekday.average.steps, by = "interval") %>% mutate(difference = avg.steps.x - avg.steps.y)
-ggplot(difference.in.pattern, aes(interval, difference)) + geom_line()
+ggplot(difference.in.pattern, aes(interval, difference)) + geom_bar(stat = "identity")
 ```
 
 What we can see from the last chart is that between 500 (5 am) and 900 (9 am), weekdays have on average 50 to 100 steps more than weekend days. After that, other than few exceptions (the most significant one being at around 6 pm), more steps are made during the weekend days.

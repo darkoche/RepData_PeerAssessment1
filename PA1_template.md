@@ -207,7 +207,11 @@ We will modify a dataset a bit, to create a variable that shows a difference bet
 
 ```r
 difference.in.pattern = left_join(weekend.average.steps, weekday.average.steps, by = "interval") %>% mutate(difference = avg.steps.x - avg.steps.y)
-ggplot(difference.in.pattern, aes(interval, difference)) + geom_line()
+ggplot(difference.in.pattern, aes(interval, difference)) + geom_bar(stat = "identity")
+```
+
+```
+## Warning: Stacking not well defined when ymin != 0
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-17-1.png) 
